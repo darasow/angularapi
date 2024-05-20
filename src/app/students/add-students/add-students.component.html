@@ -1,0 +1,57 @@
+<div class="container mx-auto p-4">
+    <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
+        <div class="md:flex">
+            <div class="w-full px-6 py-8 md:p-8">
+                <h2 class="text-2xl font-bold text-gray-800">Ajouter un étudiant</h2>
+                <p class="mt-4 text-gray-600">Veuillez remplir le formulaire ci-dessous pour ajouter un étudiant.</p>
+                <form [formGroup]="student_form" class="mt-6" (ngSubmit)="addStudent()">
+                    <div class="mb-6">
+                        <label class="block text-gray-800 font-bold mb-2" for="first_name">Prénom</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name" type="text" formControlName="first_name" required>
+                        <div class="text-red-500 mt-1" *ngIf="student_form.controls['first_name'].invalid && (student_form.controls['first_name'].dirty || student_form.controls['first_name'].touched)">
+                            Veuillez fournir un prénom valide.
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-800 font-bold mb-2" for="last_name">Nom de famille</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last_name" type="text" formControlName="last_name" required>
+                        <div class="text-red-500 mt-1" *ngIf="student_form.controls['last_name'].invalid && (student_form.controls['last_name'].dirty || student_form.controls['last_name'].touched)">
+                            Veuillez fournir un nom de famille valide.
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-800 font-bold mb-2" for="date_of_birth">Date de naissance</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date_of_birth" type="date" formControlName="date_of_birth" required>
+                        <div class="text-red-500 mt-1" *ngIf="student_form.controls['date_of_birth'].invalid && (student_form.controls['date_of_birth'].dirty || student_form.controls['date_of_birth'].touched)">
+                            Veuillez fournir une date de naissance valide.
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-800 font-bold mb-2" for="email">E-mail</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" formControlName="email" required>
+                        <div class="text-red-500 mt-1" *ngIf="student_form.controls['email'].invalid && (student_form.controls['email'].dirty || student_form.controls['email'].touched)">
+                            Veuillez fournir une adresse e-mail valide.
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-800 font-bold mb-2" for="address">Adresse</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" type="text" formControlName="address" required>
+                        <div class="text-red-500 mt-1" *ngIf="student_form.controls['address'].invalid && (student_form.controls['address'].dirty || student_form.controls['address'].touched)">
+                            Veuillez fournir une adresse valide.
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-800 font-bold mb-2" for="phone_number">Numéro de téléphone</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone_number" type="tel" formControlName="phone_number">
+                        <div class="text-red-500 mt-1" *ngIf="student_form.controls['phone_number'].invalid && (student_form.controls['phone_number'].dirty || student_form.controls['phone_number'].touched)">
+                            Veuillez fournir un numéro de téléphone valide.
+                        </div>
+                    </div>
+                    <button [disabled]="student_form.invalid" type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Soumettre
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
